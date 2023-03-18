@@ -18,21 +18,26 @@ let p2Score = 0;
 let winningScore = 3;
 let isGameOver = false;
 
-function updateScore(player, opponet) {
+function updateScore(player, opponent) {
 
     if (!isGameOver) {
 
         player.score += 1;
+
+        if (player.score === opponent.score && player.score === winningScore - 1) {
+
+            winningScore += 1;
+        }
 
         if (player.score === winningScore) {
 
             isGameOver = true;
 
             player.display.classList.add('has-text-success');
-            opponet.display.classList.add('has-text-danger');
+            opponent.display.classList.add('has-text-danger');
 
             player.button.disabled = true;
-            opponet.button.disabled = true;
+            opponent.button.disabled = true;
         }
 
         player.display.textContent = player.score;
