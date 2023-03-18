@@ -39,6 +39,20 @@ function updateScore(player, opponet) {
     }
 }
 
+function reset() {
+
+    isGameOver = false;
+
+    for (let player of [player1, player2]) {
+
+        player.score = 0;
+        player.display.textContent = 0;
+        player.display.classList.remove('has-text-success', 'has-text-danger');
+        player.button.disabled = false;
+
+    }
+}
+
 player1.button.addEventListener('click', function () {
 
     updateScore(player1, player2);
@@ -56,17 +70,3 @@ winningScoreSelect.addEventListener('change', function () {
 });
 
 resetButton.addEventListener('click', reset);
-
-function reset() {
-
-    isGameOver = false;
-
-    for (let player of [player1, player2]) {
-
-        player.score = 0;
-        player.display.textContent = 0;
-        player.display.classList.remove('has-text-success', 'has-text-danger');
-        player.button.disabled = false;
-
-    }
-}
