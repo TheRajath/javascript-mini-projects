@@ -37,7 +37,6 @@ function updateScore(player, opponet) {
 
         player.display.textContent = player.score;
     }
-
 }
 
 player1.button.addEventListener('click', function () {
